@@ -6,6 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
+  actions: read
   contents: read
   pages: write
   id-token: write
@@ -23,9 +24,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
+        id: upload
         with:
+          name: github-pages
           path: dist
+      - name: Verify uploaded website is available
+        uses: actions/github-script@v7
+        env:
+          UPLOADED_ARTIFACT_ID: ${{ steps.upload.outputs.artifact_id }}
+        with:
+          script: |
+            const expected = process.env.UPLOADED_ARTIFACT_ID;
+            if (!expected) throw new Error('Website upload returned no artifact ID.');
+            for (let attempt = 0; attempt < 12; attempt++) {
+              const { data } = await github.rest.actions.listWorkflowRunArtifacts({
+                ...context.repo, run_id: context.runId
+              });
+              if (data.artifacts.some(a => String(a.id) === expected && a.name === 'github-pages' && !a.expired)) {
+                core.info('Website artifact is ready: ' + expected);
+                return;
+              }
+              await new Promise(resolve => setTimeout(resolve, 5000));
+            }
+            throw new Error('Uploaded website is not visible through the GitHub artifacts API.');
       - name: Deploy invitation
         id: deployment
         uses: actions/deploy-pages@v4
+        with:
+          artifact_name: github-pages
