@@ -16,12 +16,12 @@ else
   git remote add github "https://github.com/$repo.git"
 fi
 git push -u github main
+git subtree push --prefix dist github gh-pages
 if gh api "repos/$repo/pages" >/dev/null 2>&1; then
-  gh api --method PUT "repos/$repo/pages" -f build_type=workflow >/dev/null
+  gh api --method PUT "repos/$repo/pages" -f build_type=legacy -f 'source[branch]=gh-pages' -f 'source[path]=/' >/dev/null
 else
-  gh api --method POST "repos/$repo/pages" -f build_type=workflow >/dev/null
+  gh api --method POST "repos/$repo/pages" -f build_type=legacy -f 'source[branch]=gh-pages' -f 'source[path]=/' >/dev/null
 fi
-gh workflow run pages.yml --repo "$repo" --ref main
 printf '\nGitHub Pages deployment started.\n'
 printf 'Invitation URL after deployment: https://vaibhavrathore1999.github.io/prashant-anushka-wedding/\n'
 printf 'Deployment progress: https://github.com/%s/actions\n' "$repo"
