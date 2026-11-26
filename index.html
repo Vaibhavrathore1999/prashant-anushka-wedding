@@ -16,12 +16,25 @@
 .closing{min-height:100svh;display:grid;place-items:center;background:var(--dark);color:#fff0dc;padding:5rem 1.25rem;text-align:center}.closing-card{width:min(900px,100%);padding:5rem 2rem;border:1px solid #c79a78;border-radius:24rem 24rem 1.5rem 1.5rem/6rem 6rem 1.5rem 1.5rem;background:#73475966}.closing .title{color:#fff0dc}.names{font-size:clamp(3rem,7vw,5.8rem);line-height:1}.closing .link-button{color:#fff0dc;border-color:#e6c9a6}
 @media(max-width:720px){.section{padding:4rem 1rem}.panel{padding:4rem 1.1rem}.opening h1{font-size:4.7rem}.families{grid-template-columns:1fr;gap:1rem}.amp{line-height:.5}.event{grid-template-columns:90px 1fr;padding:1.15rem}.time{padding-right:.8rem}.event-copy{padding-left:1rem}.event h3{font-size:1.55rem}.event p{font-size:1.05rem}.sound{top:auto;bottom:1rem}.scratch-wrap{width:min(330px,86vw)}}@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.opening{transition:none}}
 .couple-art{background:#fff7f4;text-align:center}.couple-art figure{margin:2rem auto 0;width:min(440px,90%)}.couple-art img{display:block;width:100%;height:auto;border:1px solid #dfb99f;border-radius:12rem 12rem 1rem 1rem;box-shadow:var(--shadow)}.couple-art figcaption{margin-top:1rem;font:2.5rem Allura,cursive;color:var(--wine)}
+.opening{overflow:hidden;isolation:isolate;perspective:1400px;background:none;transition:opacity .65s ease,visibility .65s;touch-action:pan-y}
+.opening::before{content:"";position:absolute;inset:-3%;z-index:-3;background:linear-gradient(#48263822,#48263833),url("dreamy-wedding-stage.png") center/cover;transform:scale(1.035);transition:transform 2.2s ease,opacity 1.4s ease .3s}
+.curtain{position:absolute;top:0;bottom:-2%;width:52%;z-index:-1;pointer-events:none;backface-visibility:hidden;will-change:transform;transition:transform 1.85s cubic-bezier(.45,0,.15,1);background:linear-gradient(180deg,#3d142633,transparent 30%,#250d24aa),repeating-linear-gradient(90deg,#50243e 0%,#754259 5%,#ab6a7b 10%,#713e54 15%,#472137 20%);box-shadow:inset 0 15px 50px #240c2899,0 15px 40px #240c2866}
+.curtain::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(0deg,transparent 0 3px,#fff1 4px,transparent 5px);opacity:.25}
+.curtain::after{content:"";position:absolute;top:0;bottom:0;width:10px;background:linear-gradient(90deg,#886236,#f3dca6,#b58d56);box-shadow:0 0 15px #e4b87455}
+.curtain-left{left:0;transform-origin:left center;border-radius:0 0 5% 0}.curtain-right{right:0;transform-origin:right center;border-radius:0 0 0 5%;background-position:right top}.curtain-left::after{right:0}.curtain-right::after{left:0}
+.valance{position:absolute;top:-1px;left:-3%;width:106%;height:clamp(65px,12vh,115px);z-index:2;pointer-events:none;border-bottom:3px solid #cfac73;border-radius:0 0 50% 50%/0 0 45% 45%;background:repeating-linear-gradient(95deg,#482039,#875066 8%,#56273f 16%);box-shadow:0 8px 30px #28101d66;transition:transform 1.6s ease,opacity 1s ease .5s}
+.valance::after{content:"✦     ✧     ✦     ✧     ✦     ✧     ✦";position:absolute;bottom:6px;left:0;right:0;text-align:center;word-spacing:clamp(.8rem,3vw,3rem);font-size:1rem;color:#e9ce95}
+.opening-content{width:min(950px,100%);position:relative;transform:translateZ(55px);transition:opacity .45s ease,transform .8s ease; padding:2rem 0}.opening h1{line-height:1.05;font-size:clamp(3.6rem,9vw,7.5rem);margin:1.1rem 0}.opening p{max-width:600px;margin:0 auto 2rem;color:#ffe8d9}.opening .eyebrow{color:#f0d8ac;font-size:.72rem}.opening-seal{display:grid;place-items:center;margin:0 auto 1.8rem;width:86px;height:86px;border:1px solid #e2be83;border-radius:50%;background:radial-gradient(circle at 30% 25%,#dcb783,#90643f);color:#fff4d9;font:2.25rem "Cormorant Garamond",serif;box-shadow:inset 0 0 0 5px #91623d55,inset 0 0 0 6px #efd1a077,0 12px 30px #270c2355;text-shadow:0 1px 4px #512c24}
+.opening .pill{background:#fff0db;color:#5e3448;box-shadow:0 8px 24px #200d2833}.opening .skip{background:transparent;color:#fce6cf;border-color:#d5b69088;box-shadow:none;transition:opacity .3s}.opening.opening-now .curtain-left{transform:translateX(-101%) rotateY(-18deg)}.opening.opening-now .curtain-right{transform:translateX(101%) rotateY(18deg)}.opening.opening-now .opening-content{opacity:0;transform:translateZ(0) translateY(-12px);pointer-events:none}.opening.opening-now .skip{opacity:0;pointer-events:none}.opening.opening-now .valance{transform:translateY(-105%);opacity:0}.opening.opening-now::before{transform:scale(1);opacity:0}
+html{scrollbar-gutter:stable}body.invitation-closed{overflow:hidden}main{transition:opacity 1.4s ease,transform 1.8s cubic-bezier(.2,.65,.3,1);transform-origin:50% 20%}body.invitation-closed main{opacity:0;transform:translateY(16px) scale(.985)}body.invitation-revealing main{opacity:1;transform:none}#tap-reveal:focus-visible{outline:2px solid var(--gold);outline-offset:6px}
+@media(max-width:720px){.opening{padding:5rem 1.4rem}.opening h1{font-size:clamp(3.5rem,13vw,5.5rem)}.opening-content{margin-top:0}.opening p{font-size:1.35rem;max-width:310px}.opening-seal{width:70px;height:70px;margin-bottom:1.2rem}.curtain{width:53%}}
+@media(prefers-reduced-motion:reduce){.opening,.opening::before,.opening-content,.curtain,.valance,.opening .skip,main{transition:none!important}.opening-content{transform:none}body.invitation-closed main{transform:none}}
 </style>
-</head><body>
+</head><body class="invitation-closed">
 <button class="pill sound" id="sound" type="button" aria-pressed="false">▮▮▮▮ <span id="sound-label">Sound off</span></button>
 <audio id="song" src="Vaaroon Forever Mirzapur 320 Kbps.mp3" loop preload="none"></audio>
-<section class="opening" id="opening"><div class="opening-content"><div class="eyebrow">Together with their families</div><h1 class="script">Prashant & Anushka</h1><p>Join us for our engagement · 6 December 2026 · 12:00 PM</p><button class="pill" id="open" type="button">Open invitation</button></div><button class="pill skip" id="skip" type="button">Skip opening</button></section>
-<main>
+<section class="opening" id="opening" aria-label="Open Prashant and Anushka's engagement invitation"><div class="curtain curtain-left" aria-hidden="true"></div><div class="curtain curtain-right" aria-hidden="true"></div><div class="valance" aria-hidden="true"></div><div class="opening-content"><div class="opening-seal" aria-hidden="true">P & A</div><div class="eyebrow">Together with their families</div><h1 class="script">Prashant & Anushka</h1><p>Join us for our engagement<br>6 December 2026 · 12:00 PM</p><button class="pill" id="open" type="button">Open invitation</button></div><button class="pill skip" id="skip" type="button">Skip opening</button></section>
+<main inert aria-hidden="true">
 <section class="section reveal"><div class="panel"><div class="eyebrow">A little surprise, just for you</div><h2 class="script title">Scratch to Reveal</h2><div class="heart-rule">♡</div><div class="scratch-wrap"><div class="heart-content"><div><span>Save the date</span><strong>6 December 2026 · 12:00 PM</strong></div></div><canvas class="scratch" id="scratch" width="600" height="540" aria-label="Scratch to reveal the date"></canvas></div><button class="link-button" id="tap-reveal" type="button">Or tap to reveal our date</button></div></section>
 <section class="section couple-art"><div class="eyebrow">Our beautiful beginning</div><h2 class="script title">Made for each other</h2><div class="heart-rule">♡</div><figure><img src="couple-watercolor.png" alt="Faceless watercolor illustration of a couple leaning together beside a pastel lake" width="948" height="1659" loading="lazy"><figcaption>Prashant & Anushka</figcaption></figure></section>
 <section class="section family"><div class="eyebrow">With the blessings of our families</div><h2 class="script title">Two hearts, one promise</h2><div class="families"><div class="family-block"><h3>Prashant Patel</h3><p>Grandson of Smt. Drupa Devi & Shri Amba Sahay Singh</p><p>Son of Smt. Santosh Devi & Shri Veerpal Singh</p></div><div class="amp">&</div><div class="family-block"><h3>Anushka Rathore</h3><p>Daughter of Smt. Prabha Rathore & Shri Tribhuvan Singh</p></div></div></section>
@@ -33,8 +46,35 @@
 <script>
 const opening=document.getElementById("opening"),song=document.getElementById("song"),sound=document.getElementById("sound"),soundLabel=document.getElementById("sound-label");
 function status(){const on=!song.paused;sound.setAttribute("aria-pressed",on);soundLabel.textContent=on?"Sound on":"Sound off"}
-async function enter(play=true){opening.classList.add("hidden");if(play)try{await song.play()}catch(e){}status()}
-document.getElementById("open").onclick=()=>enter(true);document.getElementById("skip").onclick=()=>enter(false);sound.onclick=async()=>{if(song.paused)try{await song.play()}catch(e){}else song.pause();status()};song.onplay=status;song.onpause=status;document.getElementById("replay").onclick=()=>{scrollTo(0,0);opening.classList.remove("hidden")};
+const main=document.querySelector('main'),reducedMotion=matchMedia('(prefers-reduced-motion: reduce)');let openingBusy=false;
+function instantTop(){const root=document.documentElement;const previous=root.style.scrollBehavior;root.style.scrollBehavior='auto';window.scrollTo(0,0);root.style.scrollBehavior=previous}
+function enter(play=true,skip=false){
+  if(openingBusy||opening.classList.contains('hidden'))return;
+  openingBusy=true;instantTop();
+  if(play){song.play().catch(()=>{});}
+  document.body.classList.add('invitation-revealing');
+  opening.classList.add('opening-now');
+  const delay=(skip||reducedMotion.matches)?0:1900;
+  if(skip)opening.style.transition='opacity .35s ease, visibility .35s';
+  setTimeout(()=>{
+    opening.classList.add('hidden');opening.inert=true;
+    main.inert=false;main.removeAttribute('aria-hidden');
+    document.body.classList.remove('invitation-closed','invitation-revealing');
+    document.getElementById('tap-reveal').focus({preventScroll:true});
+    openingBusy=false;status();
+  },delay);
+}
+document.getElementById('open').onclick=()=>enter(true);document.getElementById('skip').onclick=()=>enter(false,true);
+sound.onclick=async()=>{if(song.paused)try{await song.play()}catch(e){}else song.pause();status()};song.onplay=status;song.onpause=status;
+document.getElementById('replay').onclick=()=>{
+  if(openingBusy)return;
+  document.body.classList.add('invitation-closed');
+  main.inert=true;main.setAttribute('aria-hidden','true');instantTop();
+  opening.style.transition='none';opening.classList.remove('opening-now','hidden');opening.inert=false;
+  requestAnimationFrame(()=>requestAnimationFrame(()=>{opening.style.transition='';document.getElementById('open').focus({preventScroll:true})}));
+};
+if('scrollRestoration' in history)history.scrollRestoration='manual';
+instantTop();
 const c=document.getElementById("scratch"),x=c.getContext("2d");let down=false;function cover(){let g=x.createLinearGradient(0,0,600,540);g.addColorStop(0,"#ad718b");g.addColorStop(1,"#e7b5c6");x.fillStyle=g;x.fillRect(0,0,600,540);x.fillStyle="#fff8";for(let i=0;i<250;i++){x.beginPath();x.arc(Math.random()*600,Math.random()*540,Math.random()*2.2,0,7);x.fill()}x.fillStyle="#fff";x.textAlign="center";x.font="42px Allura";x.fillText("A little love",300,240);x.fillText("a little surprise",300,300);x.font="16px Montserrat";x.fillText("SCRATCH HERE",300,365)}
 function scratch(e){const r=c.getBoundingClientRect(),p=e.touches?e.touches[0]:e;x.globalCompositeOperation="destination-out";x.beginPath();x.arc((p.clientX-r.left)*600/r.width,(p.clientY-r.top)*540/r.height,50,0,7);x.fill()}["pointerdown","touchstart"].forEach(n=>c.addEventListener(n,e=>{down=true;scratch(e)}));["pointermove","touchmove"].forEach(n=>c.addEventListener(n,e=>{if(down){e.preventDefault();scratch(e)}}));["pointerup","pointerleave","touchend"].forEach(n=>c.addEventListener(n,()=>down=false));function reveal(){c.style.transition="opacity .7s";c.style.opacity=0;setTimeout(()=>c.style.pointerEvents="none",700)}document.getElementById("tap-reveal").onclick=reveal;cover();
 </script></body></html>
